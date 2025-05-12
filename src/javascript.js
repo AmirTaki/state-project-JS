@@ -30,6 +30,16 @@ document.querySelector("nav").addEventListener("click", (e)=>{
     }
 })
 
+window.addEventListener("popstate",(e)=>{
+    if (history.state){
+        update(history.state)
+    }
+    else {
+        update({title : "HOME", color : "red", itemId : "home"})
+
+    }
+} )
+
 function update(data){
     document.querySelector("h1").innerText = data.title;
     document.querySelector("main").style.backgroundColor = data.color
